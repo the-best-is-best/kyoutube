@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalKotlinGradlePluginApi::class)
 
+import com.vanniktech.maven.publish.SonatypeHost
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.getCurrentOperatingSystem
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
@@ -38,42 +39,45 @@ tasks.withType<PublishToMavenRepository> {
     }
 }
 
-//
-//
-//mavenPublishing {
-//    coordinates("${groupId}", "${artifacts}", ${version})
-//
-//    publishToMavenCentral(SonatypeHost.S01)
-//    signAllPublications()
-//
-//    pom {
-//        name.set("${lib.name}")
-//        description.set("${lib.description}")
-//        url.set("${lib.url}")
-//        licenses {
-//            license {
-//                name.set("Apache-2.0")
-//                url.set("https://opensource.org/licenses/Apache-2.0")
-//            }
-//        }
-//        issueManagement {
-//            system.set("${github}")
-//            url.set("${lib.issue.github}")
-//        }
-//        scm {
-//            connection.set("${lib.github.git}")
-//            url.set("${lib.url}")
-//        }
-//        developers {
-//            developer {
-//                id.set("${lib.developer.nameId}")
-//                name.set("${lib.developer.name}")
-//                email.set("${lib.developer.name}")
-//            }
-//        }
-//    }
-//
-//}
+
+
+mavenPublishing {
+    coordinates("io.github.the-best-is-best", "kyoutube", "1.0.0")
+
+    publishToMavenCentral(SonatypeHost.S01)
+    signAllPublications()
+
+    pom {
+        name.set("KYoutube")
+        description.set("KYoutube is a Kotlin Multiplatform package that facilitates the integration of a customizable YouTube WebView component across various platforms, including Android, iOS, JVM, JavaScript, and WebAssembly. Built on the principles of Jetpack Compose and Compose for iOS, this package allows developers to embed and control YouTube video playback seamlessly in their applications.")
+        url.set("https://github.com/the-best-is-best/kyoutube")
+        licenses {
+            license {
+                name.set("Apache-2.0")
+                url.set("https://opensource.org/licenses/Apache-2.0")
+            }
+        }
+        issueManagement {
+            system.set("GITHUB")
+            url.set("https://github.com/the-best-is-best/kyoutube")
+        }
+        scm {
+            connection.set("https://github.com/the-best-is-best/kyoutube.git")
+            url.set("https://github.com/the-best-is-best/kyoutube")
+        }
+        developers {
+            developers {
+                developer {
+                    id.set("MichelleRaouf")
+                    name.set("Michelle Raouf")
+                    email.set("eng.michelle.raouf@gmail.com")
+
+                }
+            }
+        }
+    }
+
+}
 
 
 signing {
